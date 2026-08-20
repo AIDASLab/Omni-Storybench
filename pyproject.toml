@@ -1,0 +1,51 @@
+[project]
+name = "omni-storybench"
+version = "0.1.0"
+description = "Baseline generation code for Omni-StoryBench"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "accelerate==1.13.0",
+    "anthropic>=0.96,<1",
+    "diffusers==0.36.0",
+    "einops>=0.8.2,<1",
+    "emova-speech-tokenizer",
+    "flash-attn==2.8.3",
+    "jaxtyping>=0.3,<1",
+    "librosa==0.11.0",
+    "numpy==2.2.6",
+    "omegaconf==2.3.0",
+    "openai>=2.15,<3",
+    "pandas>=2.3,<3",
+    "parler-tts",
+    "pillow>=11,<13",
+    "pydantic>=2.12,<3",
+    "pyyaml>=6,<7",
+    "qwen-omni-utils==0.0.9",
+    "safetensors>=0.7,<1",
+    "soundfile>=0.13,<1",
+    "setuptools==80.10.2",
+    "torch==2.10.0",
+    "torchaudio==2.10.0",
+    "torchvision==0.25.0",
+    "tqdm>=4.67,<5",
+    "transformers==4.57.6",
+    "typeguard>=4.4,<5",
+    "vllm==0.19.1",
+    "voxcpm==2.0.2",
+]
+
+[tool.uv.sources]
+emova-speech-tokenizer = { git = "https://github.com/emova-ollm/EMOVA_speech_tokenizer.git", rev = "ae4b1b51934a9905f77811ec271075714e75be20" }
+parler-tts = { git = "https://github.com/huggingface/parler-tts.git", rev = "d108732cd57788ec86bc857d99a6cabd66663d68" }
+
+[tool.uv]
+package = false
+override-dependencies = [
+    "librosa==0.11.0",
+    "numpy==2.2.6",
+    "protobuf==6.33.4",
+    "transformers==4.57.6",
+]
+
+[tool.uv.extra-build-dependencies]
+flash-attn = ["torch==2.10.0"]

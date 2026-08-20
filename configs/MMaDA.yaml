@@ -1,0 +1,32 @@
+orch_device: "cuda:0"
+output_path: "mmada_parler"
+# output_path: "mmada_voxcpm"
+
+
+mmada_model: "Gen-Verse/MMaDA-8B-MixCoT"
+mmada_vq_model: "showlab/magvitv2"
+
+mmada_max_text_len: 1024
+mmada_resolution: 512
+
+mmu_max_new_tokens: 512
+mmu_steps: 256
+mmu_block_length: 128
+
+t2i_guidance_scale: 3.5
+t2i_generation_timesteps: 15
+t2i_generation_temperature: 1.0
+t2i_noise_type: "mask"
+mask_schedule: "cosine"
+
+cond_dropout_prob: 0.0
+
+t2s_model: parler-tts/parler-tts-large-v1
+# t2s_model: openbmb/VoxCPM2
+t2s_device: "cuda:0"
+
+default_speaker_name: "Narrator"
+default_emotion: "neutral"
+default_speed: "normal"
+default_pitch: "normal"
+default_gender: "female"

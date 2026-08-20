@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and secrets
+.venv/
+venv/
+*-env/
+.env
+.env.*
+!.env.example
+
+# Generated artifacts and model caches
+outputs/
+output/
+.cache/
+*.wav
+*.log
+errors.jsonl
+
+# Reproducibly fetched third-party source checkouts. Keep manifests and docs.
+third_party/Emu3/
+third_party/MMaDA/
+
+# Editors and operating systems
+.cursor/
+.claude/
+.DS_Store

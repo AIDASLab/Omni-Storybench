@@ -1,0 +1,4 @@
+output_path: qwen25omni_nitro
+t2i_model: amd/Nitro-T-1.2B
+orch_device: cuda:4
+t2i_device: cuda:4

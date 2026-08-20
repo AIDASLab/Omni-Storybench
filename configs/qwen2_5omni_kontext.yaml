@@ -1,0 +1,4 @@
+output_path: qwen25omni_fluxkontext
+t2i_model: black-forest-labs/FLUX.1-Kontext-dev
+orch_device: cuda:6
+t2i_device: cuda:6

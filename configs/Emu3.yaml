@@ -1,0 +1,24 @@
+output_path: emu3_parler
+
+orch_device: cuda:0
+attn_implementation: flash_attention_2
+
+emu3_chat_model: BAAI/Emu3-Chat
+emu3_gen_model: BAAI/Emu3-Gen
+emu3_vq_model: BAAI/Emu3-VisionTokenizer
+
+chat_max_new_tokens: 512
+image_max_new_tokens: 40960
+image_do_sample: true
+image_top_k: 2048
+classifier_free_guidance: 3.0
+image_ratio: "1:1"
+
+t2s_model: parler-tts/parler-tts-large-v1
+t2s_device: cuda
+
+default_speaker_name: Narrator
+default_emotion: neutral
+default_speed: normal
+default_pitch: normal
+default_gender: female

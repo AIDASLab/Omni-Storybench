@@ -1,0 +1,4 @@
+output_path: emova_fluxkontext
+t2i_model: black-forest-labs/FLUX.1-Kontext-dev
+orch_device: cuda:2
+t2i_device: cuda:2

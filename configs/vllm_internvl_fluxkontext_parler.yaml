@@ -1,0 +1,9 @@
+output_path: internvl_fluxkontext_parler
+vllm_model: OpenGVLab/InternVL3_5-4B
+vllm_base_url: http://localhost:8000/v1
+vllm_api_key: EMPTY
+vllm_max_tokens: 8192
+t2i_model: black-forest-labs/FLUX.1-Kontext-dev
+t2i_device: cuda:6
+t2s_model: parler-tts/parler-tts-large-v1
+t2s_device: cuda:7

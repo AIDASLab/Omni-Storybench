@@ -1,0 +1,6 @@
+output_path: claude_opus47_flux_voxcpm
+claude_model: claude-opus-4-7
+t2i_model: black-forest-labs/FLUX.1-dev
+t2i_device: cuda:4
+t2s_model: openbmb/VoxCPM2
+t2s_device: cuda:7

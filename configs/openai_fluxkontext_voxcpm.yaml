@@ -1,0 +1,6 @@
+output_path: gpt54_fluxkontext_voxcpm
+openai_model: gpt-5.4
+t2i_model: black-forest-labs/FLUX.1-Kontext-dev
+t2i_device: cuda:5
+t2s_model: openbmb/VoxCPM2
+t2s_device: cuda:7

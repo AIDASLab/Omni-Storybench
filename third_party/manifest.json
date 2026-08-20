@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "repositories": {
+    "emu3": {
+      "url": "https://github.com/baaivision/Emu3.git",
+      "commit": "dbbf9858194d70b8c58293e219ecffe22df0f9c7",
+      "directory": "Emu3",
+      "environment_variable": "OMNI_STORYBENCH_EMU3_ROOT",
+      "license": "Apache-2.0",
+      "required_paths": [
+        "LICENSE",
+        "requirements.txt",
+        "emu3/mllm/processing_emu3.py",
+        "emu3/mllm/utils_emu3.py"
+      ]
+    },
+    "mmada": {
+      "url": "https://github.com/Gen-Verse/MMaDA.git",
+      "commit": "3cdb8709635beb29f66e4e23cd66060872ac3996",
+      "directory": "MMaDA",
+      "environment_variable": "OMNI_STORYBENCH_MMADA_ROOT",
+      "license": "MIT",
+      "required_paths": [
+        "LICENSE",
+        "requirements.txt",
+        "models/__init__.py",
+        "training/prompting_utils.py",
+        "training/utils.py",
+        "configs/mmada_demo.yaml"
+      ]
+    }
+  }
+}

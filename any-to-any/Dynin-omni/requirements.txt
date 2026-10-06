@@ -1,0 +1,6 @@
+# Install the pinned public Dynin-Omni requirements first. These are the
+# additional packages and versions checked for this benchmark runner.
+huggingface_hub==0.33.4
+pyarrow==20.0.0
+safetensors==0.5.3
+soundfile==0.13.1

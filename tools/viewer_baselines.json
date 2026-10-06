@@ -1,0 +1,45 @@
+{
+  "notes": "Baselines shown in the dataset viewer: the highest Total Average configuration of each paradigm group in the paper (Appendix G, valid-only Total). 'dir' is the run directory under the baseline outputs root; names follow the paper.",
+  "baselines": [
+    {
+      "dir": "claude_opus47_fluxkontext_parler",
+      "paradigm": "orch-large",
+      "backbone": "Claude-Opus-4.7",
+      "image_expert": "FLUX.1-Kontext",
+      "speech_expert": "Parler-large",
+      "total": 7.749
+    },
+    {
+      "dir": "qwen35_fluxkontext_voxcpm",
+      "paradigm": "orch-small",
+      "backbone": "Qwen3.5-4B",
+      "image_expert": "FLUX.1-Kontext",
+      "speech_expert": "VoxCPM2",
+      "total": 7.003
+    },
+    {
+      "dir": "qwen25omni_fluxkontext",
+      "paradigm": "semi-img",
+      "backbone": "Qwen2.5-Omni-7B",
+      "image_expert": "FLUX.1-Kontext",
+      "speech_expert": null,
+      "total": 7.169
+    },
+    {
+      "dir": "emu3_parler",
+      "paradigm": "semi-tts",
+      "backbone": "Emu3-9B",
+      "image_expert": null,
+      "speech_expert": "Parler-large",
+      "total": 5.565
+    },
+    {
+      "dir": "Dynin-omni",
+      "paradigm": "any",
+      "backbone": "Dynin-Omni",
+      "image_expert": null,
+      "speech_expert": null,
+      "total": 6.942
+    }
+  ]
+}

@@ -1,0 +1,4972 @@
+{
+ "dataset": "snu-aidas/Omni-StoryBench",
+ "dataset_revision": "b1436d97b4f7a97ad3185456874e46a7b87df3e2",
+ "baselines": [
+  {
+   "key": "claude_opus47_fluxkontext_parler",
+   "paradigm": "orch-large",
+   "paradigm_label": "Orchestration (Large)",
+   "backbone": "Claude-Opus-4.7",
+   "image_expert": "FLUX.1-Kontext",
+   "speech_expert": "Parler-large",
+   "total": 7.749
+  },
+  {
+   "key": "qwen35_fluxkontext_voxcpm",
+   "paradigm": "orch-small",
+   "paradigm_label": "Orchestration (Small)",
+   "backbone": "Qwen3.5-4B",
+   "image_expert": "FLUX.1-Kontext",
+   "speech_expert": "VoxCPM2",
+   "total": 7.003
+  },
+  {
+   "key": "qwen25omni_fluxkontext",
+   "paradigm": "semi-img",
+   "paradigm_label": "Semi-orchestration (w/ Image Gen.)",
+   "backbone": "Qwen2.5-Omni-7B",
+   "image_expert": "FLUX.1-Kontext",
+   "speech_expert": null,
+   "total": 7.169
+  },
+  {
+   "key": "emu3_parler",
+   "paradigm": "semi-tts",
+   "paradigm_label": "Semi-orchestration (w/ TTS)",
+   "backbone": "Emu3-9B",
+   "image_expert": null,
+   "speech_expert": "Parler-large",
+   "total": 5.565
+  },
+  {
+   "key": "Dynin-omni",
+   "paradigm": "any",
+   "paradigm_label": "Any-to-any",
+   "backbone": "Dynin-Omni",
+   "image_expert": null,
+   "speech_expert": null,
+   "total": 6.942
+  }
+ ],
+ "judge_types": {
+  "text": "Narration",
+  "image": "Image",
+  "speech": "Speech",
+  "joint": "Integrated"
+ },
+ "judge_criteria": {
+  "text": [
+   "Metadata",
+   "Continuity",
+   "Conditions",
+   "GT consistency"
+  ],
+  "image": [
+   "Metadata",
+   "Continuity",
+   "Conditions",
+   "GT consistency"
+  ],
+  "speech": [
+   "Metadata",
+   "Naturalness",
+   "Conditions",
+   "GT consistency"
+  ],
+  "joint": [
+   "Metadata",
+   "Continuity",
+   "Conditions",
+   "GT consistency"
+  ]
+ },
+ "examples": [
+  {
+   "id": "storyweaver/264815-baby-brother-karthi/page_002__page_003",
+   "aspect": "First-person observer, aunt speaks",
+   "rationale": "An older sibling narrates in the first person (“my baby brother Karthi”) but only watches: on the next page the narrator is out of frame while Savitha aunty plays with the baby and speaks, and Mom adjusts his nappy. Soft hand-painted illustrations on a warm beige ground.",
+   "attribution": {
+    "title": "Baby Brother Karthi",
+    "authors": [
+     "Anitha Selvanathan"
+    ],
+    "illustrators": [
+     "Madhuri Purandare"
+    ],
+    "license": null,
+    "url": "https://storyweaver.org.in/en/stories/264815-baby-brother-karthi",
+    "verified": false
+   },
+   "source": {
+    "key": "storyweaver",
+    "name": "Storyweaver",
+    "license": "CC BY 4.0",
+    "url": "https://storyweaver.org.in/"
+   },
+   "book": "264815-baby-brother-karthi",
+   "transition": {
+    "from": "page_002",
+    "to": "page_003"
+   },
+   "input": {
+    "current_page": {
+     "image": "images/storyweaver/264815-baby-brother-karthi/page_002.jpg",
+     "text": "Savitha aunty has come to see my baby brother Karthi. My mom came with my baby brother from the hospital yesterday. My baby brother Karthi was born in the hospital near our house."
+    },
+    "book_metadata": {
+     "genre": "Family Life",
+     "topic": "A child's feelings of jealousy and adjustment to a new baby brother and learning about love and sharing.",
+     "style": "Simple narrative",
+     "narrative_tense": "Past",
+     "narrative_perspective": "First-person",
+     "characters": [
+      {
+       "name": "Narrator (child)",
+       "sex": "",
+       "age_range": "",
+       "species": "human",
+       "role": "protagonist",
+       "personality": [
+        "jealous",
+        "caring",
+        "adjusting"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Karthi",
+       "sex": "male",
+       "age_range": "newborn",
+       "species": "human",
+       "role": "baby brother",
+       "personality": [],
+       "appearance": ""
+      },
+      {
+       "name": "Mom",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "parent",
+       "personality": [
+        "caring",
+        "loving"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Savitha Aunty",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "supporting",
+       "personality": [
+        "wise",
+        "supportive",
+        "humorous"
+       ],
+       "appearance": ""
+      }
+     ]
+    }
+   },
+   "next_page_condition": {
+    "characters": [
+     {
+      "name": "Savitha aunty",
+      "emotion": "joyful, playful",
+      "visibility": "full",
+      "speech_intent": "entertaining the baby with a toy",
+      "action": "waving a colorful toy over Karthi’s tummy"
+     },
+     {
+      "name": "Mom",
+      "emotion": "tender, focused",
+      "visibility": "partial (leaning over baby)",
+      "speech_intent": "",
+      "action": "adjusting Karthi's nappy"
+     },
+     {
+      "name": "Karthi",
+      "emotion": "calm, curious",
+      "visibility": "full",
+      "speech_intent": "",
+      "action": "lying on a mat, looking at the toy"
+     }
+    ],
+    "scene": "A cozy indoor setting with soft lighting; Mom and Savitha aunty are attending to baby Karthi on a striped mat on the floor.",
+    "text_instruction": "Describe Savitha aunty playing with Karthi using a musical toy while Mom cares for him.",
+    "ambient_sound": "Soft giggles, gentle ting-ting sounds from the toy, and quiet murmurs of affection"
+   },
+   "ground_truth": {
+    "next_page": {
+     "image": "images/storyweaver/264815-baby-brother-karthi/page_003.jpg",
+     "text": "Mom and Savitha aunty played with Karthi. Savitha aunty waved a toy over Karthi’s tummy. The toy made sounds ting, ting, ting. Mom adjusted Karthi's nappy."
+    },
+    "speech": {
+     "utterance": "Ting, ting, ting! What a fun sound, Karthi!",
+     "speaker": "Savitha aunty",
+     "emotion": "happy",
+     "speed": "normal",
+     "pitch": "high",
+     "gender": "female"
+    }
+   },
+   "outputs": {
+    "claude_opus47_fluxkontext_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Savitha aunty leaned over Karthi and waved a bright, jingling toy above his little tummy. Ting-ting-ting! Karthi's tiny eyes followed the colors as Mom gently adjusted his nappy. \"Look at those big curious eyes, little Karthi!\" Savitha aunty cooed with a playful smile."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/264815-baby-brother-karthi/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/264815-baby-brother-karthi/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.666666666666666
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          8,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          5,
+          3
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.333333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          1,
+          1,
+          1
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.333333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.416666666666666
+      }
+     }
+    },
+    "qwen35_fluxkontext_voxcpm": {
+     "text": {
+      "status": "ok",
+      "text": "‘But she made me smile by pretending the toy can tickle my tummy!',"
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/264815-baby-brother-karthi/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/264815-baby-brother-karthi/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          3,
+          4,
+          2,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          2,
+          1
+         ],
+         "mean": 1.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          4,
+          3
+         ],
+         "mean": 5.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.0833333333333335
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.25
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          1,
+          1
+         ],
+         "mean": 3.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.75
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          10,
+          9
+         ],
+         "mean": 9.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.75
+      }
+     }
+    },
+    "qwen25omni_fluxkontext": {
+     "text": {
+      "status": "ok",
+      "text": "Mom gently adjusts Karthi's nappy while Savitha aunty waves a colorful musical toy over his tummy, cooing, 'Look at Karthi, he's so cute!' The baby lies calmly on a striped mat, his eyes wide with curiosity as he looks at the toy. The room is softly lit, with a cozy and warm atmosphere, and the sound of gentle giggles and the toy's ting-ting noises fills the air."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/264815-baby-brother-karthi/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/264815-baby-brother-karthi/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.666666666666666
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          3
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.166666666666667
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          1,
+          1
+         ],
+         "mean": 3.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          1,
+          1
+         ],
+         "mean": 1.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.916666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          7
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.5
+      }
+     }
+    },
+    "emu3_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Savitha aunty plays with Karthi using a musical toy. \"My baby brother Karthi was born in the hospital near our house.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/264815-baby-brother-karthi/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/264815-baby-brother-karthi/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          4,
+          4
+         ],
+         "mean": 4.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.25
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 1.0833333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          1,
+          1,
+          1
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.333333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          3,
+          2,
+          1
+         ],
+         "mean": 3.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          2
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          6
+         ],
+         "mean": 7.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.166666666666667
+      }
+     }
+    },
+    "Dynin-omni": {
+     "text": {
+      "status": "ok",
+      "text": "Savitha aunty is playing with Karthi with a toy over thearthi's tummy. My mom adjusted his nappyappy. Savitha aunty saidLook at the toy, it's making a music noise. \"Look at this toy, it's making a music noise!\"!\"!\"-ri"
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/264815-baby-brother-karthi/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/264815-baby-brother-karthi/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          5
+         ],
+         "mean": 3.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          8
+         ],
+         "mean": 8.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.833333333333333
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          4,
+          3,
+          3
+         ],
+         "mean": 3.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          2
+         ],
+         "mean": 3.75
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.0
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          1,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.583333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          6
+         ],
+         "mean": 7.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.833333333333333
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "storyweaver/23003-i-need-to-hide/page_019__page_020",
+   "aspect": "Piggy-bank narrator, sad speech",
+   "rationale": "A piggy bank narrates the story in the first person and is also the speaker. As Na sprinkles water over it, it says a sad, slow, low-pitched line about being apart from her, which the two-sentence narration only hints at. Soft digital painting.",
+   "attribution": {
+    "title": "I Need to Hide!",
+    "authors": [
+     "Trịnh Hà Giang",
+     "Magdalena Cooper (translator)"
+    ],
+    "illustrators": [
+     "Phùng Nguyên Quang"
+    ],
+    "license": null,
+    "url": "https://storyweaver.org.in/en/stories/23003-i-need-to-hide",
+    "verified": false
+   },
+   "source": {
+    "key": "storyweaver",
+    "name": "Storyweaver",
+    "license": "CC BY 4.0",
+    "url": "https://storyweaver.org.in/"
+   },
+   "book": "23003-i-need-to-hide",
+   "transition": {
+    "from": "page_019",
+    "to": "page_020"
+   },
+   "input": {
+    "current_page": {
+     "image": "images/storyweaver/23003-i-need-to-hide/page_019.jpg",
+     "text": "What do I love the most? Having a best friend like Na."
+    },
+    "book_metadata": {
+     "genre": "Emotional Journey",
+     "topic": "A piggy bank's fear of being broken and its bond with its owner, Na, as they face a life-changing decision.",
+     "style": "Simple and heartfelt",
+     "narrative_tense": "Past",
+     "narrative_perspective": "First-person",
+     "characters": [
+      {
+       "name": "Piggy Bank",
+       "sex": "",
+       "age_range": "",
+       "species": "Piggy bank",
+       "role": "protagonist",
+       "personality": [
+        "terrified of being broken",
+        "loving",
+        "cautious"
+       ],
+       "appearance": "A pig-shaped piggy bank"
+      },
+      {
+       "name": "Na",
+       "sex": "",
+       "age_range": "",
+       "species": "human",
+       "role": "best friend",
+       "personality": [
+        "careful",
+        "affectionate"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Mom",
+       "sex": "",
+       "age_range": "",
+       "species": "human",
+       "role": "supporting",
+       "personality": [
+        "practical"
+       ],
+       "appearance": ""
+      }
+     ]
+    }
+   },
+   "next_page_condition": {
+    "characters": [
+     {
+      "name": "Piggy Bank",
+      "emotion": "content, slightly anxious",
+      "visibility": "full (on dresser)",
+      "speech_intent": "expresses fear of separation",
+      "action": "smiles gently as water is sprinkled on it"
+     },
+     {
+      "name": "Na",
+      "emotion": "affectionate, gentle",
+      "visibility": "partial (legs cropped by the frame)",
+      "speech_intent": "",
+      "action": "sprinkles water from a pink watering can onto the piggy bank"
+     }
+    ],
+    "scene": "A cozy room with soft light, a wooden dresser holding the piggy bank, and a framed drawing of Na and the piggy bank on the wall behind them.",
+    "text_instruction": "Show Na caring for the piggy bank with a watering can, while the piggy bank smiles contentedly and admits its deep fear of being separated from her.",
+    "ambient_sound": "soft splashing of water and quiet breathing"
+   },
+   "ground_truth": {
+    "next_page": {
+     "image": "images/storyweaver/23003-i-need-to-hide/page_020.jpg",
+     "text": "What scares me the most? Not being with her."
+    },
+    "speech": {
+     "utterance": "I can't bear the thought of being apart from her.",
+     "speaker": "Piggy Bank",
+     "emotion": "sad",
+     "speed": "slow",
+     "pitch": "low",
+     "gender": "female"
+    }
+   },
+   "outputs": {
+    "claude_opus47_fluxkontext_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Every morning, Na sprinkled a little water on me, as if I were a flower that needed care. I smiled quietly, but deep inside, one fear never left me. \"Please, Na... don't ever let me break away from you.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/23003-i-need-to-hide/page_019__page_020.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/23003-i-need-to-hide/page_019__page_020.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          8,
+          9
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          9
+         ],
+         "mean": 9.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.75
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.75
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          7,
+          5
+         ],
+         "mean": 5.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.916666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          9,
+          8
+         ],
+         "mean": 8.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.0
+      }
+     }
+    },
+    "qwen35_fluxkontext_voxcpm": {
+     "text": {
+      "status": "ok",
+      "text": "The sound of water made my skin cool. They pour water for me every day. They water their new flower now. Will I never miss Na?"
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/23003-i-need-to-hide/page_019__page_020.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/23003-i-need-to-hide/page_019__page_020.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          3
+         ],
+         "mean": 4.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.583333333333333
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          8,
+          7
+         ],
+         "mean": 7.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.416666666666667
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          2,
+          1
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          2,
+          2
+         ],
+         "mean": 2.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.3333333333333335
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          8,
+          6,
+          5
+         ],
+         "mean": 6.5
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          8,
+          7
+         ],
+         "mean": 8.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.416666666666667
+      }
+     }
+    },
+    "qwen25omni_fluxkontext": {
+     "text": {
+      "status": "ok",
+      "text": "Na, I'm so scared of being broken. I don't want to be separated from you."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/23003-i-need-to-hide/page_019__page_020.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/23003-i-need-to-hide/page_019__page_020.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          8
+         ],
+         "mean": 8.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.0
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          5,
+          6,
+          5
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          7,
+          6
+         ],
+         "mean": 6.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.583333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          8,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.25
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          3,
+          3
+         ],
+         "mean": 4.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          7,
+          8,
+          7
+         ],
+         "mean": 7.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.416666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          9,
+          9,
+          9
+         ],
+         "mean": 9.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.75
+      }
+     }
+    },
+    "emu3_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Na feels contentment knowing that she has her beloved piggy bank to hold onto even when separated. \"Na loves her piggy bank and feels safe knowing it's with her no matter where she goes.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/23003-i-need-to-hide/page_019__page_020.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/23003-i-need-to-hide/page_019__page_020.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          4,
+          3,
+          2,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          2,
+          1
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.3333333333333335
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 1.25
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          8,
+          7
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          1,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.083333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          8,
+          4
+         ],
+         "mean": 6.25
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          4,
+          3,
+          4,
+          2
+         ],
+         "mean": 3.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.75
+      }
+     }
+    },
+    "Dynin-omni": {
+     "text": {
+      "status": "ok",
+      "text": "Na makes my face the most. I am scared of getting away. \"I'm so scared of being like Na.\"est"
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/23003-i-need-to-hide/page_019__page_020.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/23003-i-need-to-hide/page_019__page_020.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          4,
+          3,
+          2,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          5,
+          6,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.5833333333333335
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          2,
+          2
+         ],
+         "mean": 3.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          5,
+          3
+         ],
+         "mean": 4.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.0
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          1,
+          1,
+          1
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          1,
+          2
+         ],
+         "mean": 2.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.0
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.3333333333333335
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "storyweaver/138171-soup-for-mother/page_007__page_008",
+   "aspect": "Off-screen speaker, close-up, no characters",
+   "rationale": "The next page cuts from the children’s hands preparing vegetables to a close-up of a steaming pan with nobody in the frame, yet Fiza, out of view, speaks a delighted, high-pitched line about the sizzling spices that is not in the narration. Grainy illustrations with sketchy pencil lines.",
+   "attribution": {
+    "title": "Soup for mother",
+    "authors": [
+     "Ashish kumar Trivedi",
+     "Rita Bansal (translator)"
+    ],
+    "illustrators": [
+     "Kabini Amin",
+     "Raymond Diby",
+     "Tanvee Nabar"
+    ],
+    "license": null,
+    "url": "https://storyweaver.org.in/en/stories/138171-soup-for-mother",
+    "verified": false
+   },
+   "source": {
+    "key": "storyweaver",
+    "name": "Storyweaver",
+    "license": "CC BY 4.0",
+    "url": "https://storyweaver.org.in/"
+   },
+   "book": "138171-soup-for-mother",
+   "transition": {
+    "from": "page_007",
+    "to": "page_008"
+   },
+   "input": {
+    "current_page": {
+     "image": "images/storyweaver/138171-soup-for-mother/page_007.jpg",
+     "text": "A little corn flour was used to make its slurry. At last, Faiz lit the fire carefully."
+    },
+    "book_metadata": {
+     "genre": "Family Life",
+     "topic": "A brother and sister prepare vegetable soup to help their sick mother recover.",
+     "style": "Simple narrative",
+     "narrative_tense": "Past",
+     "narrative_perspective": "Third-person limited",
+     "characters": [
+      {
+       "name": "Faiz",
+       "sex": "male",
+       "age_range": "",
+       "species": "human",
+       "role": "protagonist",
+       "personality": [
+        "responsible",
+        "caring",
+        "determined"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Fiza",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "supporting",
+       "personality": [
+        "helpful",
+        "attentive",
+        "supportive"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Mother",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "supporting",
+       "personality": [
+        "caring",
+        "loving"
+       ],
+       "appearance": ""
+      }
+     ]
+    }
+   },
+   "next_page_condition": {
+    "characters": [
+     {
+      "name": "Fiza",
+      "emotion": "excited, attentive",
+      "visibility": "not visible",
+      "speech_intent": "expresses delight at the sizzling spices",
+      "action": "watches the pan closely"
+     },
+     {
+      "name": "Faiz",
+      "emotion": "focused, proud",
+      "visibility": "not visible",
+      "speech_intent": "",
+      "action": "cooks the spices in the pan"
+     }
+    ],
+    "scene": "Close-up of a steaming pan on a stove with sizzling whole spices; warm kitchen light and soft shadows.",
+    "text_instruction": "Describe the beginning of cooking the soup base with butter and spices, highlighting Fiza’s interest and reaction to the sizzling sound.",
+    "ambient_sound": "sizzling spices, gentle crackling of heat, soft kitchen background noise"
+   },
+   "ground_truth": {
+    "next_page": {
+     "image": "images/storyweaver/138171-soup-for-mother/page_008.jpg",
+     "text": "A pan was put on fire. A little butter was added. When hot, garlic, onion and green chilly was added. Fiza was watching everything with great interest."
+    },
+    "speech": {
+     "utterance": "Wow, the spices are really sizzling!",
+     "speaker": "Fiza",
+     "emotion": "happy",
+     "speed": "normal",
+     "pitch": "high",
+     "gender": "female"
+    }
+   },
+   "outputs": {
+    "claude_opus47_fluxkontext_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Faiz melted a spoonful of butter in the pan, then dropped in the whole spices. They danced and crackled the moment they touched the warm butter. Fiza leaned closer, her eyes wide with wonder. \"Listen, Bhaiya, they're singing!\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/138171-soup-for-mother/page_007__page_008.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/138171-soup-for-mother/page_007__page_008.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.666666666666666
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          6,
+          7
+         ],
+         "mean": 6.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          3,
+          4
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.583333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.0
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          9,
+          10,
+          9
+         ],
+         "mean": 9.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.833333333333334
+      }
+     }
+    },
+    "qwen35_fluxkontext_voxcpm": {
+     "text": {
+      "status": "ok",
+      "text": "Today, we are making soup for Mom."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/138171-soup-for-mother/page_007__page_008.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/138171-soup-for-mother/page_007__page_008.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          2
+         ],
+         "mean": 1.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          5,
+          3,
+          4
+         ],
+         "mean": 4.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 2.6666666666666665
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          3
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.333333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          2,
+          5
+         ],
+         "mean": 4.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.416666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.166666666666667
+      }
+     }
+    },
+    "qwen25omni_fluxkontext": {
+     "text": {
+      "status": "ok",
+      "text": "The spices sizzled in the pan, filling the kitchen with a warm, inviting aroma. Fiza watched with excitement, her eyes wide as she heard the gentle crackling of the heat. Faiz, focused on the task, added more spices, his pride evident in the way he handled the pan."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/138171-soup-for-mother/page_007__page_008.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/138171-soup-for-mother/page_007__page_008.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          9,
+          9
+         ],
+         "mean": 9.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          7
+         ],
+         "mean": 8.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.083333333333334
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          3,
+          4
+         ],
+         "mean": 4.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          9
+         ],
+         "mean": 7.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.0
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          7
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.416666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          8
+         ],
+         "mean": 8.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          9,
+          10,
+          9
+         ],
+         "mean": 9.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.666666666666666
+      }
+     }
+    },
+    "emu3_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Fiza felt excited as she watched her brother cook. \"The sizzling sound filled the kitchen with a warm glow.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/138171-soup-for-mother/page_007__page_008.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/138171-soup-for-mother/page_007__page_008.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          4,
+          4,
+          2
+         ],
+         "mean": 3.25
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.833333333333333
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          2
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          5,
+          3
+         ],
+         "mean": 4.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          2
+         ],
+         "mean": 2.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 2.8333333333333335
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          8,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.25
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          3,
+          3
+         ],
+         "mean": 4.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.833333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          9,
+          9,
+          9
+         ],
+         "mean": 9.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.5
+      }
+     }
+    },
+    "Dynin-omni": {
+     "text": {
+      "status": "ok",
+      "text": "A little put in the fire. A little of butter and spices were added. Fiza was very much in it. \"Wow, look at the sizzling spices!\" Wow!\" It was delicious. making the soup.."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/138171-soup-for-mother/page_007__page_008.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/138171-soup-for-mother/page_007__page_008.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          5,
+          6,
+          6
+         ],
+         "mean": 6.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.583333333333333
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          9
+         ],
+         "mean": 7.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.75
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.333333333333334
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          8
+         ],
+         "mean": 8.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.25
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "storyweaver/262397-maya-makes-friends/page_002__page_003",
+   "aspect": "Long narration, multi-panel flashback",
+   "rationale": "A 60-word narration that recalls Maya being teased, illustrated as a three-panel composition. Her spoken line is a sad, slow inner monologue that does not appear in the narration.",
+   "attribution": {
+    "title": "Maya Makes Friends",
+    "authors": [
+     "Deepa Parameswaran"
+    ],
+    "illustrators": [
+     "Manjushri Casukhela"
+    ],
+    "license": null,
+    "url": "https://storyweaver.org.in/en/stories/262397-maya-makes-friends",
+    "verified": false
+   },
+   "source": {
+    "key": "storyweaver",
+    "name": "Storyweaver",
+    "license": "CC BY 4.0",
+    "url": "https://storyweaver.org.in/"
+   },
+   "book": "262397-maya-makes-friends",
+   "transition": {
+    "from": "page_002",
+    "to": "page_003"
+   },
+   "input": {
+    "current_page": {
+     "image": "images/storyweaver/262397-maya-makes-friends/page_002.jpg",
+     "text": "Ting ting ting ting! Children came running out of their classrooms with their plate and tumbler in hand. Lunch break had started. Everyone loved it as they could sit with their friends, talk and play games. Except for Maya."
+    },
+    "book_metadata": {
+     "genre": "Children's Emotional Growth",
+     "topic": "A girl named Maya faces bullying at school but finds support and friendship through a kind teacher, leading to positive change in her social environment.",
+     "style": "Simple narrative with emotional depth",
+     "narrative_tense": "Past",
+     "narrative_perspective": "Third-person limited",
+     "characters": [
+      {
+       "name": "Maya",
+       "sex": "female",
+       "age_range": "8-10",
+       "species": "human",
+       "role": "protagonist",
+       "personality": [
+        "quiet",
+        "resilient",
+        "sensitive"
+       ],
+       "appearance": "dark skin, curly hair"
+      },
+      {
+       "name": "Rosy Miss",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "mentor",
+       "personality": [
+        "kind",
+        "compassionate",
+        "supportive"
+       ],
+       "appearance": "always smiling, speaks softly"
+      },
+      {
+       "name": "Classmates",
+       "sex": "",
+       "age_range": "8-10",
+       "species": "human",
+       "role": "supporting",
+       "personality": [
+        "initially unkind",
+        "change behavior"
+       ],
+       "appearance": ""
+      }
+     ]
+    }
+   },
+   "next_page_condition": {
+    "characters": [
+     {
+      "name": "Maya",
+      "emotion": "sad, withdrawn",
+      "visibility": "full",
+      "speech_intent": "internal monologue about standing alone at the end of the line, remembering past teasing",
+      "action": "standing at the end of the lunch line holding her plate and glass"
+     },
+     {
+      "name": "Classmates",
+      "emotion": "happy, energetic",
+      "visibility": "full",
+      "speech_intent": "",
+      "action": "gathering in groups, laughing, playing"
+     }
+    ],
+    "scene": "Schoolyard during lunch break, children lining up for food under a covered area, others sitting in groups on the ground, Maya standing alone at the back of the line.",
+    "text_instruction": "Describe Maya's isolation as she waits in line, remembering past teasing.",
+    "ambient_sound": "laughter and chatter from classmates, clinking plates, distant bell ringing"
+   },
+   "ground_truth": {
+    "next_page": {
+     "image": "images/storyweaver/262397-maya-makes-friends/page_003.jpg",
+     "text": "Maya took out her plate and glass, and walked to the lunch line. She watched her classmates gathering into their groups, talking, laughing and playing. Once when she had joined them, they had made fun of her dark skin and her curly hair. She had felt hurt. Now, she stood alone at the end of the line, waiting her turn."
+    },
+    "speech": {
+     "utterance": "I'll just wait my turn at the end of the line.",
+     "speaker": "Maya",
+     "emotion": "sad",
+     "speed": "slow",
+     "pitch": "normal",
+     "gender": "female"
+    }
+   },
+   "outputs": {
+    "claude_opus47_fluxkontext_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Maya stood quietly at the end of the lunch line, clutching her plate and glass tightly. All around her, children laughed and shouted, forming happy little circles on the ground. She lowered her head, remembering the mean words from yesterday. \"Why does no one ever save a seat for me?\" she whispered to herself."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/262397-maya-makes-friends/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/262397-maya-makes-friends/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.083333333333334
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          5,
+          6
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          8
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.416666666666667
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          1,
+          2
+         ],
+         "mean": 2.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.666666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          7
+         ],
+         "mean": 8.25
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          6
+         ],
+         "mean": 7.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.5
+      }
+     }
+    },
+    "qwen35_fluxkontext_voxcpm": {
+     "text": {
+      "status": "ok",
+      "text": "Maya stood alone at the back of the line, her linger hot but lips tight. She remembered how Rosy Miss used to whisper, then how they ganged on her. \"My friends play games now,\" Maya thought. \"But Maya is different.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/262397-maya-makes-friends/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/262397-maya-makes-friends/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          5,
+          4
+         ],
+         "mean": 4.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.916666666666667
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          5,
+          4
+         ],
+         "mean": 6.25
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          3
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.583333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          2,
+          1,
+          1
+         ],
+         "mean": 2.25
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.083333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          7
+         ],
+         "mean": 7.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          7
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          8,
+          8
+         ],
+         "mean": 8.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.75
+      }
+     }
+    },
+    "qwen25omni_fluxkontext": {
+     "text": {
+      "status": "ok",
+      "text": "Maya's eyes welled up as she stood at the end of the line, her plate and glass in hand. She remembered the past teasing she had faced, and a tear rolled down her cheek. The laughter and chatter of her classmates filled the air, but she felt isolated and alone."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/262397-maya-makes-friends/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/262397-maya-makes-friends/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          8,
+          8
+         ],
+         "mean": 7.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.666666666666666
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          4,
+          5
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          6
+         ],
+         "mean": 6.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          7,
+          5,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.75
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          7,
+          7
+         ],
+         "mean": 6.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.75
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          7,
+          8
+         ],
+         "mean": 8.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          8,
+          9
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          9,
+          9
+         ],
+         "mean": 9.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.666666666666666
+      }
+     }
+    },
+    "emu3_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Classmates gather in groups, laughing and chatting as they wait for lunch. \"We're all in this together.\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/262397-maya-makes-friends/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/262397-maya-makes-friends/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          4,
+          3,
+          2,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          3,
+          2,
+          1
+         ],
+         "mean": 2.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          3,
+          2
+         ],
+         "mean": 4.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 2.8333333333333335
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 1.25
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.0
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          4,
+          5,
+          3,
+          2
+         ],
+         "mean": 3.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 2.3333333333333335
+      }
+     }
+    },
+    "Dynin-omni": {
+     "text": {
+      "status": "ok",
+      "text": "Maya stood at the end of the line. She stood alone and had of her plate. The children remembered her laughter and had called her. \"I wonder if the person gets me alone when I am holding her plate,” she said to herself. Yes. laughter! She had teased her with games. laughter, laughter. She walked, playing with her plate. called the bell. The bell rang. it was her turn."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/262397-maya-makes-friends/page_002__page_003.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/262397-maya-makes-friends/page_002__page_003.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          4,
+          3,
+          2,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          4,
+          2
+         ],
+         "mean": 2.75
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          5,
+          4,
+          6
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 3.6666666666666665
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          2
+         ],
+         "mean": 3.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.25
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          3,
+          1,
+          1
+         ],
+         "mean": 2.5
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          4,
+          5
+         ],
+         "mean": 5.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.166666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          6,
+          5,
+          4,
+          4
+         ],
+         "mean": 4.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.25
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 4.166666666666667
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "storyweaver/20658-what-s-in-the-pot/page_018__page_019",
+   "aspect": "Line art, three-word narration",
+   "rationale": "Black-and-white line drawing on a colored frame. The next page's narration is only three words, and the image zooms from a wide shot to a close-up of Sam peering over the soup pot.",
+   "attribution": {
+    "title": "What's in the Pot?",
+    "authors": [
+     "Crystal Warren"
+    ],
+    "illustrators": [
+     "Hayley Alonzo"
+    ],
+    "license": null,
+    "url": "https://storyweaver.org.in/en/stories/20658-what-s-in-the-pot",
+    "verified": false
+   },
+   "source": {
+    "key": "storyweaver",
+    "name": "Storyweaver",
+    "license": "CC BY 4.0",
+    "url": "https://storyweaver.org.in/"
+   },
+   "book": "20658-what-s-in-the-pot",
+   "transition": {
+    "from": "page_018",
+    "to": "page_019"
+   },
+   "input": {
+    "current_page": {
+     "image": "images/storyweaver/20658-what-s-in-the-pot/page_018.jpg",
+     "text": "Mama carried the pot to the table and started to dish up. “What’s in the pot?” asked Sam."
+    },
+    "book_metadata": {
+     "genre": "Children's Picture Book",
+     "topic": "A child helps their mother prepare a surprise soup for supper.",
+     "style": "Simple and conversational",
+     "narrative_tense": "Past",
+     "narrative_perspective": "Third-person limited",
+     "characters": [
+      {
+       "name": "Sam",
+       "sex": "",
+       "age_range": "young child",
+       "species": "human",
+       "role": "protagonist",
+       "personality": [
+        "curious",
+        "helpful"
+       ],
+       "appearance": ""
+      },
+      {
+       "name": "Mama",
+       "sex": "female",
+       "age_range": "",
+       "species": "human",
+       "role": "parent",
+       "personality": [
+        "patient",
+        "kind"
+       ],
+       "appearance": ""
+      }
+     ]
+    }
+   },
+   "next_page_condition": {
+    "characters": [
+     {
+      "name": "Sam",
+      "emotion": "excited, happy",
+      "visibility": "close-up, peeking over the pot",
+      "speech_intent": "",
+      "action": "holding a spoon and looking into the soup pot"
+     }
+    ],
+    "scene": "Close-up view of Sam holding a spoon in one hand, looking up and licking his lips, beside a large soup pot filled with vegetables and broth, set on a kitchen table.",
+    "text_instruction": "Describe Sam’s joyful realization that the pot contains his favorite soup.",
+    "ambient_sound": "soft bubbling of soup and cheerful humming"
+   },
+   "ground_truth": {
+    "next_page": {
+     "image": "images/storyweaver/20658-what-s-in-the-pot/page_019.jpg",
+     "text": "“Soup!” My favourite!"
+    },
+    "speech": {
+     "utterance": "Soup!",
+     "speaker": "Sam",
+     "emotion": "happy",
+     "speed": "normal",
+     "pitch": "normal",
+     "gender": "male"
+    }
+   },
+   "outputs": {
+    "claude_opus47_fluxkontext_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Sam peeked over the rim of the big pot and his eyes grew wide. Carrots, potatoes, and little green peas floated in the warm, golden broth. He licked his lips and squeezed his spoon tight. \"It's my favorite—vegetable soup!\" he cried."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/20658-what-s-in-the-pot/page_018__page_019.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/claude_opus47_fluxkontext_parler/storyweaver/20658-what-s-in-the-pot/page_018__page_019.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.583333333333334
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          5,
+          7
+         ],
+         "mean": 6.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.75
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          3,
+          1
+         ],
+         "mean": 3.5
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.25
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          9,
+          8
+         ],
+         "mean": 8.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.0
+      }
+     }
+    },
+    "qwen35_fluxkontext_voxcpm": {
+     "text": {
+      "status": "ok",
+      "text": "Sam gasped, his eyes lighting up at the familiar scent. \"Mmm, it’s my tomato soup!\" he chirped, licking his lips in delight."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/20658-what-s-in-the-pot/page_018__page_019.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen35_fluxkontext_voxcpm/storyweaver/20658-what-s-in-the-pot/page_018__page_019.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.583333333333334
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          7
+         ],
+         "mean": 7.75
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.666666666666667
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          5,
+          5
+         ],
+         "mean": 5.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.75
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          8
+         ],
+         "mean": 9.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          8
+         ],
+         "mean": 8.5
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.083333333333334
+      }
+     }
+    },
+    "qwen25omni_fluxkontext": {
+     "text": {
+      "status": "ok",
+      "text": "Sam exclaimed, 'Oh, it's my favorite soup!'"
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/20658-what-s-in-the-pot/page_018__page_019.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/qwen25omni_fluxkontext/storyweaver/20658-what-s-in-the-pot/page_018__page_019.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          9
+         ],
+         "mean": 9.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.75
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          9,
+          7
+         ],
+         "mean": 7.75
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.25
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          6,
+          7,
+          5
+         ],
+         "mean": 5.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 8.583333333333334
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          9,
+          8
+         ],
+         "mean": 8.75
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          9
+         ],
+         "mean": 9.75
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.5
+      }
+     }
+    },
+    "emu3_parler": {
+     "text": {
+      "status": "ok",
+      "text": "Mama cooked a delicious soup and put it in the pot. \"The taste of home-cooked meals and the love of family\""
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/20658-what-s-in-the-pot/page_018__page_019.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/emu3_parler/storyweaver/20658-what-s-in-the-pot/page_018__page_019.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          3,
+          2,
+          1,
+          1
+         ],
+         "mean": 1.75
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          2,
+          1,
+          1,
+          1
+         ],
+         "mean": 1.25
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 2.8333333333333335
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          4,
+          3,
+          2
+         ],
+         "mean": 3.5
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          7,
+          6
+         ],
+         "mean": 7.0
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          6,
+          4,
+          3,
+          5
+         ],
+         "mean": 4.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.0
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          1,
+          5,
+          1,
+          1
+         ],
+         "mean": 2.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 7.333333333333333
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          3,
+          4,
+          2,
+          3
+         ],
+         "mean": 3.0
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          6,
+          7,
+          5,
+          5
+         ],
+         "mean": 5.75
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          8,
+          7,
+          6,
+          4
+         ],
+         "mean": 6.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 5.0
+      }
+     }
+    },
+    "Dynin-omni": {
+     "text": {
+      "status": "ok",
+      "text": "“It’s my favourite soup!” he cried."
+     },
+     "image": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/20658-what-s-in-the-pot/page_018__page_019.jpg"
+     },
+     "speech": {
+      "status": "ok",
+      "path": "outputs/Dynin-omni/storyweaver/20658-what-s-in-the-pot/page_018__page_019.mp3"
+     },
+     "judges": {
+      "text": {
+       "judges": [
+        {
+         "model": "Qwen3-30B-A3B-Instruct-2507",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Seed-OSS-36B-Instruct",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "Llama-3_3-Nemotron-Super-49B-v1_5",
+         "status": "ok",
+         "scores": [
+          9,
+          9,
+          10,
+          9
+         ],
+         "mean": 9.25
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.75
+      },
+      "image": {
+       "judges": [
+        {
+         "model": "Qwen3-VL-32B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          7,
+          6,
+          5
+         ],
+         "mean": 6.75
+        },
+        {
+         "model": "InternVL3_5-38B-Instruct",
+         "status": "ok",
+         "scores": [
+          7,
+          6,
+          5,
+          4
+         ],
+         "mean": 5.5
+        },
+        {
+         "model": "EXAONE-4.5-33B",
+         "status": "ok",
+         "scores": [
+          8,
+          6,
+          7,
+          9
+         ],
+         "mean": 7.5
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.583333333333333
+      },
+      "speech": {
+       "judges": [
+        {
+         "model": "audio-flamingo-next-hf",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        },
+        {
+         "model": "MOSS-Audio-8B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        },
+        {
+         "model": "Kimi-Audio-7B-Instruct",
+         "status": "ok",
+         "scores": [
+          5,
+          5,
+          5,
+          5
+         ],
+         "mean": 5.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 6.666666666666667
+      },
+      "joint": {
+       "judges": [
+        {
+         "model": "Qwen3-Omni-30B-A3B-Instruct",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          9,
+          7
+         ],
+         "mean": 8.25
+        },
+        {
+         "model": "Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+         "status": "ok",
+         "scores": [
+          9,
+          8,
+          10,
+          9
+         ],
+         "mean": 9.0
+        },
+        {
+         "model": "gemma-4-12B-it",
+         "status": "ok",
+         "scores": [
+          10,
+          10,
+          10,
+          10
+         ],
+         "mean": 10.0
+        }
+       ],
+       "n_valid": 3,
+       "mean": 9.083333333333334
+      }
+     }
+    }
+   }
+  }
+ ]
+}

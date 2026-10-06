@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Omni-StoryBench: a story-grounded omnimodal benchmark evaluating whether models can coherently continue stories across image, narration, and speech.">
+  <meta name="keywords" content="Omni-StoryBench, omnimodal generation, any-to-any, benchmark, storybook, text-to-image, text-to-speech, LLM-as-a-judge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Omni-StoryBench">
+  <meta property="og:description" content="What Comes Next? Omni-StoryBench for Evaluating Story-Grounded Omnimodal Generation">
+  <meta property="og:image" content="https://aidaslab.github.io/Omni-Storybench/static/images/paper/teaser.webp">
+  <meta property="og:url" content="https://aidaslab.github.io/Omni-Storybench/">
+  <title>Omni-StoryBench</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://aidas.snu.ac.kr">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        <div style="padding-left:5px;">AIDAS Lab</div>
+      </a>
+      <a class="navbar-item" href="./viewer/">
+        <span class="icon">
+            <i class="fas fa-book-open"></i>
+        </span>
+        <div style="padding-left:5px;">Dataset Viewer</div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">What Comes Next? Omni-StoryBench for Evaluating Story-Grounded Omnimodal Generation</h1>
+
+          <h1 class="title is-4 publication-title" style="color: #FF0066;">
+            arXiv Preprint, 2026
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="mailto:zxc2692@snu.ac.kr">Sieun Hyeon</a><sup>*1</sup>,</span>
+            <span class="author-block">
+              <a href="https://yejoon-lee.github.io/">Yejoon Lee</a><sup>*2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mintaeklim.notion.site/Hi-this-is-Mintaek-Lim-e2942cf5dff34df38fd513fd32e7acc8?pvs=74">Mintaek Lim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="mailto:wjk9904@snu.ac.kr">Woojin Kim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://kim-jake.github.io/">Jaeik Kim</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/jydo/home">Jaeyoung Do</a><sup>&dagger;1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">AIDAS Laboratory, <sup>1</sup>ECE &amp; <sup>2</sup>IPAI, Seoul National University</span>
+          </div>
+          <div class="is-size-6 publication-authors has-text-grey">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+            &nbsp;&nbsp;
+            <span class="author-block"><sup>&dagger;</sup>Corresponding author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2609.37317"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/AIDASLab/Omni-Storybench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/snu-aidas/Omni-StoryBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon hf-emoji" aria-hidden="true">&#x1F917;</span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="./viewer/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-book-open"></i>
+                  </span>
+                  <span>Dataset Viewer</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="image">
+        <img src="./static/images/paper/teaser.webp"
+             alt="Overview of Omni-StoryBench: the input (current scene image, narration, structured conditions), outputs of an any-to-any model and an orchestration pipeline, and the ground-truth next page.">
+      </figure>
+      <h2 class="subtitle has-text-centered teaser-caption">
+        Given the current page image, narration, and structured next-page conditions, a model must generate
+        the next page's <b>illustration</b>, <b>narration</b>, and a <b>spoken character utterance</b>.
+        The generated triplet is evaluated against the conditions and the ground-truth next page for
+        modality-specific quality and cross-modal consistency.
+        Top: an any-to-any model; bottom: an orchestration pipeline.
+      </h2>
+      <p class="teaser-credit">
+        Storybook pages in the figure:
+        <a href="https://www.africanstorybook.org/reader.php?id=15092"><i>My first day in school</i></a>
+        by Nyanchama Onywoki, illustrated by Jesse Breytenbach, Mango Tree, Silva Afonso, and Vusi Malindi,
+        &copy; African Storybook Initiative 2016, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Omnimodal evaluation should go beyond independent text, image, and speech production: individually
+              plausible outputs may not express a coherent shared event. We introduce <b>Omni-StoryBench</b>, a
+              story-grounded omnimodal benchmark evaluating whether models can coherently continue stories across
+              image, narration, and speech. Each instance provides a current storybook page and structured next-page
+              conditions, requiring models to generate the next illustration, narration, and spoken character
+              utterance. Omni-StoryBench contains 900 rigorously validated story transitions from openly licensed
+              children's books, with ground-truth next-page references and speech metadata. We evaluate systems with
+              modality-specific metrics and consistency-centered LLM-as-a-judge rubrics for context preservation,
+              condition following, reference consistency, and cross-modal coherence. Across 32 baseline
+              configurations spanning orchestration, semi-orchestration, and native any-to-any paradigms, we find
+              orchestration with strong VLM planning most reliable, while current native omnimodal models often
+              struggle with output completeness and controllability. Our analysis shows text-side performance is
+              associated with image and speech quality, but image generation and visual continuity form the
+              clearest observed bottleneck among the evaluated configurations. These results position
+              Omni-StoryBench as a system-level benchmark measuring coherent omnimodal generation beyond isolated
+              modality quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Benchmark -->
+<section class="section" id="benchmark">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Omni-StoryBench</h2>
+
+    <div class="content has-text-justified">
+      <h3 class="title is-4">Task: story-grounded omnimodal continuation</h3>
+      <p>
+        A storybook is a sequence of pages, each with an illustration, narration text, and speech information.
+        Given the current page's image and narration, book-level metadata, and conditions for the expected next
+        page, a model must generate the <b>next page</b> as a coordinated image, narration, and spoken character
+        utterance describing the same narrative state. A successful continuation satisfies four properties:
+      </p>
+      <ul>
+        <li><b>Contextual grounding</b>: the outputs reflect the current page, character information, and next-page conditions.</li>
+        <li><b>Narrative continuity</b>: the outputs preserve story flow across characters, events, actions, and emotions.</li>
+        <li><b>Modality-specific quality</b>: each modality is individually plausible and appropriate for the storybook domain.</li>
+        <li><b>Cross-modal consistency</b>: image, narration, and speech agree in characters, actions, emotions, scene semantics, and spoken content.</li>
+      </ul>
+      <p>
+        Even high-quality individual outputs fail as an omnimodal response if they contradict one another or do
+        not coherently continue the story.
+      </p>
+
+      <h3 class="title is-4">Benchmark construction</h3>
+      <p>
+        We collected children's storybooks from four websites providing openly licensed materials and extracted
+        91,449 candidate page transitions, with the current page as input and the next page as ground truth.
+        Each transition is augmented with three types of metadata:
+      </p>
+      <ul>
+        <li><b>Book-level metadata</b>: genre, topic, style, narrative tense and perspective, and character profiles.</li>
+        <li><b>Next-page conditions</b>: per-character emotion, visibility, action, and speech intent, plus the scene, a narration goal, and ambient sound.</li>
+        <li><b>Speech content and metadata</b>: the target spoken utterance and its speaker, emotion, speed, pitch, and gender.</li>
+      </ul>
+      <p>
+        Annotations were produced with large language and vision-language models, then filtered in three
+        phases: rule-based filters, VLM-based quality scoring that kept each book's best transition and the top
+        1,000 overall, and inspection and revision by 16 human reviewers, yielding the final <b>900 examples</b>.
+      </p>
+    </div>
+
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth is-narrow source-table">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>License</th>
+            <th class="has-text-right"># Books</th>
+            <th class="has-text-right"># Page pairs</th>
+            <th class="has-text-right"># Final samples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.africanstorybook.org/">African Storybook</a> (ASB approved)</td>
+            <td>CC BY 4.0</td>
+            <td class="has-text-right">699</td>
+            <td class="has-text-right">7,528</td>
+            <td class="has-text-right">54</td>
+          </tr>
+          <tr>
+            <td><a href="https://digitallibrary.io/">Global Digital Library</a></td>
+            <td>CC BY / CC BY-SA</td>
+            <td class="has-text-right">1,271</td>
+            <td class="has-text-right">11,418</td>
+            <td class="has-text-right">293</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.storybookscanada.ca/downloads/">Storybooks Canada</a></td>
+            <td>CC BY / CC BY-NC</td>
+            <td class="has-text-right">40</td>
+            <td class="has-text-right">420</td>
+            <td class="has-text-right">7</td>
+          </tr>
+          <tr>
+            <td><a href="https://storyweaver.org.in/en/stories?language=English">Storyweaver</a></td>
+            <td>CC BY 4.0</td>
+            <td class="has-text-right">9,424</td>
+            <td class="has-text-right">72,083</td>
+            <td class="has-text-right">546</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th class="has-text-right">11,434</th>
+            <th class="has-text-right">91,449</th>
+            <th class="has-text-right">900</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- Inline example: viewer example 1 (non-NC, license verified on the book's credit page) -->
+    <h3 class="title is-4" style="margin-top: 2.5rem;">Example</h3>
+    <div class="example-box">
+      <p class="example-header">
+        <b>Book:</b> <i>Didi and the Colorful Treasure</i>
+        &nbsp;&middot;&nbsp; <b>Source:</b> Global Digital Library
+        &nbsp;&middot;&nbsp; <b>Transition:</b> page_005 &rarr; page_006
+      </p>
+      <div class="columns">
+        <div class="column is-half">
+          <p class="example-col-title">Input</p>
+          <figure class="image example-image">
+            <img src="./static/images/example/didi_page_005.jpg" alt="Current page illustration (page_005)">
+            <figcaption>Current page image (page_005)</figcaption>
+          </figure>
+          <p class="example-label">Current page narration</p>
+          <blockquote>One day, Didi came to the dump. She had a red dupatta. Didi looked at the children running around. Then she looked for a place to sit. She opened her bag and took out something.</blockquote>
+
+          <p class="example-label">Next-page condition</p>
+          <div class="table-container">
+            <table class="table is-narrow is-fullwidth example-table">
+              <thead>
+                <tr><th>Character</th><th>Emotion</th><th>Visibility</th><th>Action / speech intent</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Didi</td><td>happy, inviting</td><td>full</td><td>sits on the ground and opens a colorful book; encourages children to come closer</td></tr>
+                <tr><td>The children</td><td>curious, eager</td><td>full</td><td>gather around Didi, looking at the books with wonder</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <table class="table is-narrow is-fullwidth example-table">
+            <tbody>
+              <tr><th>Scene</th><td>A garbage dump area with cardboard boxes and scattered trash, but brightened by colorful books and a red dupatta spread on the ground; children are drawn in by the vibrant illustrations.</td></tr>
+              <tr><th>Text instruction</th><td>Describe the children&#x27;s growing curiosity as they move closer to Didi and her colorful books filled with stories.</td></tr>
+              <tr><th>Ambient sound</th><td>soft rustling of pages, children’s quiet murmurs of excitement, and distant wind through trash</td></tr>
+            </tbody>
+          </table>
+
+          <details class="example-details">
+            <summary>Book-level metadata</summary>
+            <table class="table is-narrow is-fullwidth example-table">
+              <tbody>
+                <tr><th>Genre</th><td>Slice of Life</td></tr>
+                <tr><th>Topic</th><td>A kind woman teaches children to read at a garbage dump, transforming their lives through stories.</td></tr>
+                <tr><th>Style</th><td>Simple and heartwarming</td></tr>
+                <tr><th>Narrative tense</th><td>Past</td></tr>
+                <tr><th>Narrative perspective</th><td>Third-person omniscient</td></tr>
+              </tbody>
+            </table>
+            <table class="table is-narrow is-fullwidth example-table">
+              <thead><tr><th>Name</th><th>Role</th><th>Key attributes</th></tr></thead>
+              <tbody>
+                <tr><td>Didi</td><td>protagonist</td><td>kind, generous, dedicated</td></tr>
+                <tr><td>The children</td><td>supporting</td><td>curious, eager to learn, friendly</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </div>
+
+        <div class="column is-half">
+          <p class="example-col-title">Ground truth</p>
+          <figure class="image example-image">
+            <img src="./static/images/example/didi_page_006.jpg" alt="Ground-truth next page illustration (page_006)">
+            <figcaption>Next page image (page_006)</figcaption>
+          </figure>
+          <p class="example-label">Next page narration</p>
+          <blockquote>The children were curious. They moved a bit closer. Didi had lots of colourful books. The books had stories inside them. The children moved closer and closer.</blockquote>
+          <p class="example-label">Speech utterance</p>
+          <blockquote>&ldquo;Come closer, let me show you my stories!&rdquo;</blockquote>
+          <p class="example-label">Speech metadata</p>
+          <table class="table is-narrow example-table">
+            <tbody>
+              <tr><th>Speaker</th><td>Didi</td></tr>
+              <tr><th>Emotion</th><td>happy</td></tr>
+              <tr><th>Speed</th><td>normal</td></tr>
+              <tr><th>Pitch</th><td>high</td></tr>
+              <tr><th>Gender</th><td>female</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="example-credit">
+        Illustrations and narration from
+        <a href="https://digitallibrary.io/book/didi-and-the-colorful-treasure/"><i>Didi and the Colorful Treasure</i></a>
+        by Rukmini Banerji, illustrated by Kaveri Gopalakrishnan, &copy; Pratham Books, adapted by
+        The Asia Foundation &ndash; Let's Read,
+        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Global Digital Library.
+        Images resized. More examples, with model outputs, are in the <a href="./viewer/">dataset viewer</a>.
+      </p>
+    </div>
+
+    <div class="content has-text-justified" style="margin-top: 2.5rem;">
+      <h3 class="title is-4">Evaluation</h3>
+      <p>
+        We combine traditional automated metrics with LLM-as-a-judge rubrics.
+      </p>
+      <ul>
+        <li>
+          <b>Automated metrics</b>: BERTScore for narration, CLIP similarity for images, and
+          <i>Speech Metadata Accuracy</i>, the mean exact-match accuracy of emotion, speed, pitch, and gender
+          against the ground-truth speech metadata.
+        </li>
+        <li>
+          <b>LLM-as-a-judge</b>: modality-specific (text, image, speech) and integrated 1&ndash;10 scores across
+          four categories: <i>Metadata Alignment</i>, <i>Contextual Continuity</i>,
+          <i>Generation Condition Compliance</i>, and <i>Ground-Truth Semantic Consistency</i>. Each evaluation
+          type uses three judges, and we report the mean of their scores.
+        </li>
+      </ul>
+      <p>
+        The <b>Total Average</b> is the unweighted mean of these seven scores, with 0&ndash;1 metrics rescaled to
+        0&ndash;10. Quality scores are computed over examples whose required outputs are available; generation
+        failures are reported separately.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Baselines -->
+<section class="section" id="baselines">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Baseline Systems</h2>
+    <figure class="image">
+      <img src="./static/images/paper/baselines.png"
+           alt="Overview of the three baseline paradigms: orchestration, semi-orchestration, and any-to-any.">
+    </figure>
+    <p class="figure-caption">
+      In <b>Orchestration</b>, the backbone only outputs text. In <b>Semi-orchestration</b>, the backbone generates
+      two of the three modalities and an expert module generates the remaining one. <b>Any-to-any</b> models
+      generate all three modalities with a single backbone.
+    </p>
+    <div class="content has-text-justified">
+      <p>We evaluate <b>32 configurations</b> across three paradigms:</p>
+      <ul>
+        <li>
+          <b>Orchestration</b>: a VLM backbone writes the next-page narration, a text-to-image prompt, and speech
+          metadata, which drive separate image and speech generators. Backbones: GPT-5.4, Claude-Opus-4.7, and
+          GLM-4.6V (large), and InternVL3.5-4B and Qwen3.5-4B (small).
+        </li>
+        <li>
+          <b>Semi-orchestration</b>: text&ndash;image backbones (MMaDA, Emu3) paired with TTS, or text&ndash;speech
+          backbones (Qwen2.5-Omni-7B, EMOVA-7B) paired with an image generator.
+        </li>
+        <li>
+          <b>Any-to-any</b>: HyperCLOVA X 8B Omni, AnyGPT, Omni-Diffusion, and Dynin-Omni. Among these, only
+          Dynin-Omni generates text, image, and speech simultaneously in one inference pass.
+        </li>
+        <li>
+          <b>Modality experts</b>: FLUX.1-dev, FLUX.1-Kontext (which also conditions on the current image), and
+          Nitro-T-1.2B for images; Parler-large and VoxCPM2 for speech.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results</h2>
+    <figure class="image">
+      <img src="./static/images/paper/ranking.png"
+           alt="Bar chart ranking all 32 configurations by Total Average score.">
+    </figure>
+    <p class="figure-caption">
+      Ranking by the seven-metric Total Average. Each metric is averaged over examples with its required outputs
+      available, and each LLM-judge score averages three judges. Generation failures are reported separately below.
+    </p>
+
+    <h3 class="title is-4" style="margin-top: 2rem;">Full results</h3>
+    <p class="leaderboard-note">
+      Click a column header to sort. BERT, CLIP, and Meta (speech metadata accuracy) are on a 0&ndash;1 scale;
+      J<sub>T</sub>, J<sub>I</sub>, J<sub>S</sub>, J<sub>J</sub> are the text, image, speech, and integrated
+      judge scores (1&ndash;10), each averaging three judges. Bold marks the best value in each column.
+    </p>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth is-narrow leaderboard" id="leaderboard">
+        <thead>
+          <tr>
+            <th data-sort="paper" title="Restore paper order">Paradigm</th>
+            <th>Backbone</th>
+            <th>Image</th>
+            <th>Speech</th>
+            <th data-sort="num">BERT</th>
+            <th data-sort="num">CLIP</th>
+            <th data-sort="num">Meta</th>
+            <th data-sort="num">J<sub>T</sub></th>
+            <th data-sort="num">J<sub>I</sub></th>
+            <th data-sort="num">J<sub>S</sub></th>
+            <th data-sort="num">J<sub>J</sub></th>
+            <th data-sort="num">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr data-order="0"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GPT-5.4</th><td>FLUX.1-dev</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.732">0.732</td><td data-v="0.584">0.584</td><td data-v="9.386">9.386</td><td data-v="5.788">5.788</td><td data-v="6.752">6.752</td><td data-v="8.797">8.797</td><td data-v="7.53">7.530</td></tr>
+<tr data-order="1"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GPT-5.4</th><td>FLUX.1-Kontext</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.772">0.772</td><td data-v="0.584">0.584</td><td data-v="9.384">9.384</td><td data-v="6.489">6.489</td><td data-v="6.752">6.752</td><td data-v="8.879">8.879</td><td data-v="7.699">7.699</td></tr>
+<tr data-order="2"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GPT-5.4</th><td>FLUX.1-dev</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.732">0.732</td><td data-v="0.566">0.566</td><td data-v="9.387">9.387</td><td data-v="5.787">5.787</td><td data-v="6.987"><strong>6.987</strong></td><td data-v="8.83">8.830</td><td data-v="7.543">7.543</td></tr>
+<tr data-order="3"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GPT-5.4</th><td>FLUX.1-Kontext</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.772">0.772</td><td data-v="0.566">0.566</td><td data-v="9.389"><strong>9.389</strong></td><td data-v="6.499">6.499</td><td data-v="6.987"><strong>6.987</strong></td><td data-v="8.909">8.909</td><td data-v="7.712">7.712</td></tr>
+<tr data-order="4"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GLM-4.6V</th><td>FLUX.1-dev</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.707">0.707</td><td data-v="0.565">0.565</td><td data-v="9.217">9.217</td><td data-v="5.995">5.995</td><td data-v="6.522">6.522</td><td data-v="8.773">8.773</td><td data-v="7.436">7.436</td></tr>
+<tr data-order="5"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GLM-4.6V</th><td>FLUX.1-Kontext</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.771">0.771</td><td data-v="0.565">0.565</td><td data-v="9.217">9.217</td><td data-v="6.652">6.652</td><td data-v="6.522">6.522</td><td data-v="8.847">8.847</td><td data-v="7.631">7.631</td></tr>
+<tr data-order="6"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GLM-4.6V</th><td>FLUX.1-dev</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.707">0.707</td><td data-v="0.539">0.539</td><td data-v="9.215">9.215</td><td data-v="6.0">6.000</td><td data-v="6.887">6.887</td><td data-v="8.813">8.813</td><td data-v="7.457">7.457</td></tr>
+<tr data-order="7"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>GLM-4.6V</th><td>FLUX.1-Kontext</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.771">0.771</td><td data-v="0.539">0.539</td><td data-v="9.216">9.216</td><td data-v="6.656">6.656</td><td data-v="6.887">6.887</td><td data-v="8.897">8.897</td><td data-v="7.655">7.655</td></tr>
+<tr data-order="8"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>Claude-Opus-4.7</th><td>FLUX.1-dev</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.741">0.741</td><td data-v="0.584">0.584</td><td data-v="9.366">9.366</td><td data-v="6.327">6.327</td><td data-v="6.684">6.684</td><td data-v="8.931">8.931</td><td data-v="7.626">7.626</td></tr>
+<tr data-order="9"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>Claude-Opus-4.7</th><td>FLUX.1-Kontext</td><td>Parler-large</td><td data-v="0.882">0.882</td><td data-v="0.773">0.773</td><td data-v="0.584">0.584</td><td data-v="9.365">9.365</td><td data-v="6.808"><strong>6.808</strong></td><td data-v="6.684">6.684</td><td data-v="8.987">8.987</td><td data-v="7.749"><strong>7.749</strong></td></tr>
+<tr data-order="10"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>Claude-Opus-4.7</th><td>FLUX.1-dev</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.741">0.741</td><td data-v="0.548">0.548</td><td data-v="9.367">9.367</td><td data-v="6.33">6.330</td><td data-v="6.896">6.896</td><td data-v="8.936">8.936</td><td data-v="7.606">7.606</td></tr>
+<tr data-order="11"><td><span class="paradigm-tag orch-large">Orch. (Large)</span></td><th>Claude-Opus-4.7</th><td>FLUX.1-Kontext</td><td>VoxCPM2</td><td data-v="0.882">0.882</td><td data-v="0.773">0.773</td><td data-v="0.548">0.548</td><td data-v="9.367">9.367</td><td data-v="6.806">6.806</td><td data-v="6.896">6.896</td><td data-v="9.002"><strong>9.002</strong></td><td data-v="7.729">7.729</td></tr>
+<tr data-order="12"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>InternVL3.5-4B</th><td>FLUX.1-dev</td><td>Parler-large</td><td data-v="0.872">0.872</td><td data-v="0.683">0.683</td><td data-v="0.561">0.561</td><td data-v="7.019">7.019</td><td data-v="4.889">4.889</td><td data-v="6.158">6.158</td><td data-v="7.525">7.525</td><td data-v="6.678">6.678</td></tr>
+<tr data-order="13"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>InternVL3.5-4B</th><td>FLUX.1-Kontext</td><td>Parler-large</td><td data-v="0.872">0.872</td><td data-v="0.757">0.757</td><td data-v="0.561">0.561</td><td data-v="7.022">7.022</td><td data-v="5.805">5.805</td><td data-v="6.158">6.158</td><td data-v="7.658">7.658</td><td data-v="6.934">6.934</td></tr>
+<tr data-order="14"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>InternVL3.5-4B</th><td>Nitro-T-1.2B</td><td>Parler-large</td><td data-v="0.872">0.872</td><td data-v="0.662">0.662</td><td data-v="0.561">0.561</td><td data-v="7.019">7.019</td><td data-v="3.489">3.489</td><td data-v="6.189">6.189</td><td data-v="7.185">7.185</td><td data-v="6.404">6.404</td></tr>
+<tr data-order="15"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>Qwen3.5-4B</th><td>FLUX.1-dev</td><td>VoxCPM2</td><td data-v="0.879">0.879</td><td data-v="0.713">0.713</td><td data-v="0.503">0.503</td><td data-v="7.154">7.154</td><td data-v="5.629">5.629</td><td data-v="6.316">6.316</td><td data-v="7.817">7.817</td><td data-v="6.837">6.837</td></tr>
+<tr data-order="16"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>Qwen3.5-4B</th><td>FLUX.1-Kontext</td><td>VoxCPM2</td><td data-v="0.879">0.879</td><td data-v="0.765">0.765</td><td data-v="0.503">0.503</td><td data-v="7.156">7.156</td><td data-v="6.198">6.198</td><td data-v="6.316">6.316</td><td data-v="7.884">7.884</td><td data-v="7.003">7.003</td></tr>
+<tr data-order="17"><td><span class="paradigm-tag orch-small">Orch. (Small)</span></td><th>Qwen3.5-4B</th><td>Nitro-T-1.2B</td><td>VoxCPM2</td><td data-v="0.879">0.879</td><td data-v="0.705">0.705</td><td data-v="0.503">0.503</td><td data-v="7.152">7.152</td><td data-v="4.144">4.144</td><td data-v="6.365">6.365</td><td data-v="7.434">7.434</td><td data-v="6.567">6.567</td></tr>
+<tr data-order="18"><td><span class="paradigm-tag semi-tts">Semi-orch. (w/ TTS)</span></td><th>MMaDA</th><td>&ndash;</td><td>Parler-large</td><td data-v="0.873">0.873</td><td data-v="0.641">0.641</td><td data-v="0.515">0.515</td><td data-v="4.524">4.524</td><td data-v="2.057">2.057</td><td data-v="5.659">5.659</td><td data-v="5.09">5.090</td><td data-v="5.374">5.374</td></tr>
+<tr data-order="19"><td><span class="paradigm-tag semi-tts">Semi-orch. (w/ TTS)</span></td><th>Emu3-9B</th><td>&ndash;</td><td>Parler-large</td><td data-v="0.873">0.873</td><td data-v="0.583">0.583</td><td data-v="0.552">0.552</td><td data-v="5.104">5.104</td><td data-v="2.252">2.252</td><td data-v="5.988">5.988</td><td data-v="5.532">5.532</td><td data-v="5.565">5.565</td></tr>
+<tr data-order="20"><td><span class="paradigm-tag semi-tts">Semi-orch. (w/ TTS)</span></td><th>MMaDA</th><td>&ndash;</td><td>VoxCPM2</td><td data-v="0.873">0.873</td><td data-v="0.641">0.641</td><td data-v="0.477">0.477</td><td data-v="4.524">4.524</td><td data-v="2.052">2.052</td><td data-v="5.676">5.676</td><td data-v="5.109">5.109</td><td data-v="5.324">5.324</td></tr>
+<tr data-order="21"><td><span class="paradigm-tag semi-tts">Semi-orch. (w/ TTS)</span></td><th>Emu3-9B</th><td>&ndash;</td><td>VoxCPM2</td><td data-v="0.873">0.873</td><td data-v="0.583">0.583</td><td data-v="0.496">0.496</td><td data-v="5.105">5.105</td><td data-v="2.252">2.252</td><td data-v="5.724">5.724</td><td data-v="5.556">5.556</td><td data-v="5.45">5.450</td></tr>
+<tr data-order="22"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>Qwen2.5-Omni-7B</th><td>FLUX.1-dev</td><td>&ndash;</td><td data-v="0.878">0.878</td><td data-v="0.687">0.687</td><td data-v="0.539">0.539</td><td data-v="7.756">7.756</td><td data-v="4.9">4.900</td><td data-v="6.502">6.502</td><td data-v="8.006">8.006</td><td data-v="6.885">6.885</td></tr>
+<tr data-order="23"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>EMOVA-7B</th><td>FLUX.1-dev</td><td>&ndash;</td><td data-v="0.871">0.871</td><td data-v="0.685">0.685</td><td data-v="0.54">0.540</td><td data-v="7.553">7.553</td><td data-v="4.956">4.956</td><td data-v="6.07">6.070</td><td data-v="7.706">7.706</td><td data-v="6.749">6.749</td></tr>
+<tr data-order="24"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>Qwen2.5-Omni-7B</th><td>FLUX.1-Kontext</td><td>&ndash;</td><td data-v="0.878">0.878</td><td data-v="0.762">0.762</td><td data-v="0.539">0.539</td><td data-v="7.757">7.757</td><td data-v="5.961">5.961</td><td data-v="6.502">6.502</td><td data-v="8.171">8.171</td><td data-v="7.169">7.169</td></tr>
+<tr data-order="25"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>EMOVA-7B</th><td>FLUX.1-Kontext</td><td>&ndash;</td><td data-v="0.871">0.871</td><td data-v="0.775">0.775</td><td data-v="0.54">0.540</td><td data-v="7.553">7.553</td><td data-v="5.237">5.237</td><td data-v="6.07">6.070</td><td data-v="7.582">7.582</td><td data-v="6.901">6.901</td></tr>
+<tr data-order="26"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>EMOVA-7B</th><td>Nitro-T-1.2B</td><td>&ndash;</td><td data-v="0.871">0.871</td><td data-v="0.658">0.658</td><td data-v="0.54">0.540</td><td data-v="7.554">7.554</td><td data-v="3.617">3.617</td><td data-v="6.07">6.070</td><td data-v="7.365">7.365</td><td data-v="6.471">6.471</td></tr>
+<tr data-order="27"><td><span class="paradigm-tag semi-img">Semi-orch. (w/ Image Gen.)</span></td><th>Qwen2.5-Omni-7B</th><td>Nitro-T-1.2B</td><td>&ndash;</td><td data-v="0.878">0.878</td><td data-v="0.658">0.658</td><td data-v="0.539">0.539</td><td data-v="7.757">7.757</td><td data-v="3.528">3.528</td><td data-v="6.502">6.502</td><td data-v="7.696">7.696</td><td data-v="6.605">6.605</td></tr>
+<tr data-order="28"><td><span class="paradigm-tag any">Any-to-any</span></td><th>HyperCLOVA X 8B Omni</th><td>&ndash;</td><td>&ndash;</td><td data-v="0.868">0.868</td><td data-v="0.7">0.700</td><td data-v="0.544">0.544</td><td data-v="6.23">6.230</td><td data-v="3.358">3.358</td><td data-v="5.977">5.977</td><td data-v="6.728">6.728</td><td data-v="6.203">6.203</td></tr>
+<tr data-order="29"><td><span class="paradigm-tag any">Any-to-any</span></td><th>AnyGPT</th><td>&ndash;</td><td>&ndash;</td><td data-v="0.802">0.802</td><td data-v="0.652">0.652</td><td data-v="0.419">0.419</td><td data-v="3.295">3.295</td><td data-v="2.028">2.028</td><td data-v="3.286">3.286</td><td data-v="3.894">3.894</td><td data-v="4.462">4.462</td></tr>
+<tr data-order="30"><td><span class="paradigm-tag any">Any-to-any</span></td><th>Omni-Diffusion</th><td>&ndash;</td><td>&ndash;</td><td data-v="0.872">0.872</td><td data-v="0.695">0.695</td><td data-v="0.485">0.485</td><td data-v="4.123">4.123</td><td data-v="3.157">3.157</td><td data-v="5.731">5.731</td><td data-v="5.407">5.407</td><td data-v="5.564">5.564</td></tr>
+<tr data-order="31"><td><span class="paradigm-tag any">Any-to-any</span></td><th>Dynin-Omni</th><td>&ndash;</td><td>&ndash;</td><td data-v="0.908"><strong>0.908</strong></td><td data-v="0.851"><strong>0.851</strong></td><td data-v="0.586"><strong>0.586</strong></td><td data-v="6.234">6.234</td><td data-v="5.839">5.839</td><td data-v="6.109">6.109</td><td data-v="6.952">6.952</td><td data-v="6.942">6.942</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- Key findings -->
+<section class="section" id="findings">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Key Findings</h2>
+
+    <div class="finding">
+      <h3 class="title is-5">1. Orchestration leads, and native models often leave outputs incomplete</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-5 content">
+          <p>
+            The highest Total Average scores come from orchestration with large VLM backbones. Even 4B-scale
+            orchestration outperforms most semi-orchestration and any-to-any systems, suggesting that explicitly
+            invoking modality-specific experts remains effective.
+          </p>
+          <p>
+            The gap also concerns <b>reliability</b>. Semi-orchestration backbones often produce malformed
+            intermediate outputs, and any-to-any models sometimes omit requested modalities, so the final response
+            lacks an image, narration, or speech. Orchestration rarely fails this way, even with small backbones.
+          </p>
+        </div>
+        <div class="column is-7">
+          <figure class="image">
+            <img src="./static/images/paper/failures.png"
+                 alt="Stacked bar chart of orchestration JSON errors and missing text, image, and speech outputs per backbone.">
+          </figure>
+          <p class="figure-caption">Orchestration JSON errors and missing outputs per modality over 900 test cases.
+            Unlisted backbones have no recorded generation failures.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <h3 class="title is-5">2. Text connects, speech correlates, but image bottlenecks</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-7 content">
+          <p>
+            Modality scores are strongly correlated across the 32 systems, most strongly between text and speech.
+            Strong text performance goes with better image and speech, consistent with the role of story-state
+            understanding, condition parsing, and prompt construction. Controlling for text, the image&ndash;speech
+            partial correlation nearly vanishes (r = &minus;0.122).
+          </p>
+          <p>
+            Image is the clearest bottleneck: it is most often the weakest modality (14 of 32 systems), has the
+            largest mean rank gap and widest score spread, and systems weak in image have the lowest attainable
+            Total Average.
+          </p>
+        </div>
+        <div class="column is-5">
+          <table class="table is-narrow is-fullwidth small-table">
+            <thead><tr><th>Pair</th><th class="has-text-right">Pearson r</th><th class="has-text-right">p</th></tr></thead>
+            <tbody>
+              <tr><td>Text &ndash; Image</td><td class="has-text-right">0.824</td><td class="has-text-right">6.9e-09</td></tr>
+              <tr><td>Text &ndash; Speech</td><td class="has-text-right"><b>0.880</b></td><td class="has-text-right">3.1e-11</td></tr>
+              <tr><td>Image &ndash; Speech</td><td class="has-text-right">0.693</td><td class="has-text-right">1.1e-05</td></tr>
+            </tbody>
+          </table>
+          <table class="table is-narrow is-fullwidth small-table">
+            <thead><tr><th>Diagnostic</th><th class="has-text-right">Text</th><th class="has-text-right">Image</th><th class="has-text-right">Speech</th></tr></thead>
+            <tbody>
+              <tr><td>Weakest-modality count</td><td class="has-text-right">9</td><td class="has-text-right"><b>14</b></td><td class="has-text-right">9</td></tr>
+              <tr><td>Mean weakest-modality rank gap (pp)</td><td class="has-text-right">2.57</td><td class="has-text-right"><b>6.85</b></td><td class="has-text-right">3.13</td></tr>
+              <tr><td>IQR of modality score</td><td class="has-text-right">1.22</td><td class="has-text-right"><b>1.79</b></td><td class="has-text-right">0.45</td></tr>
+              <tr><td>Max Total (bottom tercile)</td><td class="has-text-right">6.94</td><td class="has-text-right"><b>6.60</b></td><td class="has-text-right">7.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <h3 class="title is-5">3. The verbosity trap in orchestration</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-7 content">
+          <p>
+            Large-VLM orchestration scores highly under LLM judges, but its advantage shrinks under BERTScore.
+            Ground-truth narration is short, direct, and literary, averaging 107 characters, while Claude-Opus-4.7,
+            GPT-5.4, and GLM-4.6V average over 200 characters, adding scene details, character states, and
+            explanatory phrases.
+          </p>
+          <p>
+            These additions are plausible and favored by judges, but fit the concise children's-book style less
+            well: even state-of-the-art models do not fully internalize the stylistic prior of fairy-tale
+            continuation.
+          </p>
+        </div>
+        <div class="column is-5">
+          <figure class="image">
+            <img src="./static/images/paper/verbosity.png"
+                 alt="Comparison of BERTScore and LLM-judge text scores across baselines.">
+          </figure>
+          <p class="figure-caption">Text evaluation metrics: large-VLM orchestration scores highly under LLM
+            judging but shows smaller gains in BERTScore.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <h3 class="title is-5">4. Plausible images still break continuity</h3>
+      <div class="columns is-vcentered">
+        <div class="column is-5">
+          <figure class="image">
+            <img src="./static/images/paper/image_judge.png"
+                 alt="Line chart of image LLM-judge scores by category and baseline paradigm.">
+          </figure>
+          <p class="figure-caption">Image LLM-judge scores by category and baseline paradigm.</p>
+        </div>
+        <div class="column is-7 content">
+          <p>
+            Image metadata alignment stays relatively high, while continuity, condition satisfaction, and
+            ground-truth consistency are substantially lower. The bottleneck is not generic image plausibility but
+            <b>visual state preservation</b>: character appearance, spatial layout, objects, actions, and scene
+            composition across the page transition.
+          </p>
+          <p>
+            FLUX.1-Kontext, which sees the current image, consistently beats FLUX.1-dev: compressing the story state
+            into a text prompt alone loses visual information needed for the next scene.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <h3 class="title is-5">5. Native omnimodal models are promising but not yet a substitute</h3>
+      <div class="content has-text-justified">
+        <p>
+          Orchestration costs separate model calls per modality, coordination design, and multiple experts
+          controlled by a strong backbone. Outside large-scale orchestration, native any-to-any models,
+          semi-orchestration, and small-backbone orchestration overlap in performance. Notably, Dynin-Omni scores
+          competitively with small-backbone orchestration while generating all three modalities in one inference
+          pass, which motivates native models that reach orchestration-level completeness, controllability, and
+          fidelity through a unified interface.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Viewer callout -->
+<section class="hero is-light" id="viewer">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Explore the Dataset</h2>
+      <p class="subtitle is-6" style="margin-bottom: 1.5rem;">
+        Browse curated Omni-StoryBench examples: inputs, structured conditions, ground-truth next pages, and
+        the next pages generated by baseline systems.
+      </p>
+      <a href="./viewer/" class="button is-medium is-rounded is-dark">
+        <span class="icon"><i class="fas fa-book-open"></i></span>
+        <span>Open the Dataset Viewer</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{hyeon2026comesnextomnistorybenchevaluating,
+      title={What Comes Next? Omni-StoryBench for Evaluating Story-Grounded Omnimodal Generation},
+      author={Sieun Hyeon and Yejoon Lee and Mintaek Lim and Woojin Kim and Jaeik Kim and Jaeyoung Do},
+      year={2026},
+      eprint={2609.37317},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2609.37317},
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer (Don't change) -->
+<footer class="footer" style="padding-bottom: 40px;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <a href="https://en.snu.ac.kr">
+            <img src="./static/images/snu_logo.png" alt="Logo" style="max-height: 48px; margin: 6px 10px;">
+          </a>
+          <a href="https://aidas.snu.ac.kr">
+            <img src="./static/images/aidaslab_logo.png" alt="Logo" style="max-height: 36px; margin: 10px 30px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

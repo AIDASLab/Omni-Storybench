@@ -1,0 +1,269 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+
+/* ---- Omni-StoryBench additions ---- */
+.teaser-caption {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 1.25rem;
+}
+
+.figure-caption {
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0.75rem auto 1.5rem auto;
+  max-width: 52rem;
+}
+
+.section .title.is-4 {
+  margin-top: 1.75rem;
+}
+
+.source-table td, .source-table th,
+.leaderboard td, .leaderboard th {
+  vertical-align: middle;
+}
+
+/* Inline example */
+.example-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  background: #fcfcfc;
+}
+.example-header {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+.example-col-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.example-image img {
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+}
+.example-image figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+.example-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0.9rem 0 0.3rem 0;
+}
+.example-box blockquote {
+  border-left: 3px solid #ccc;
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  background: #f5f5f5;
+  font-size: 0.92rem;
+}
+.example-table {
+  font-size: 0.82rem;
+  background: transparent;
+  margin-bottom: 0.6rem !important;
+}
+.example-table th {
+  white-space: nowrap;
+}
+.example-details summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0.6rem 0;
+}
+.example-credit {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+/* Leaderboard */
+.leaderboard-note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+.leaderboard {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.leaderboard td[data-v] {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.leaderboard th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+.leaderboard th.sortable:hover {
+  background: #f0f0f0;
+}
+.leaderboard th.sorted-desc::after { content: " \25BC"; font-size: 0.7em; }
+.leaderboard th.sorted-asc::after { content: " \25B2"; font-size: 0.7em; }
+
+/* Paradigm colors follow the paper's ranking figure (Okabe-Ito palette). */
+.paradigm-tag {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+}
+.paradigm-tag.orch-large { background: #0072B2; }
+.paradigm-tag.orch-small { background: #9ECAE1; color: #123; }
+.paradigm-tag.semi-tts   { background: #E69F00; color: #1a1200; }
+.paradigm-tag.semi-img   { background: #CC79A7; color: #1f0716; }
+.paradigm-tag.any        { background: #009E73; color: #00140e; }
+
+/* Key findings */
+.finding {
+  margin-bottom: 2.5rem;
+}
+.small-table {
+  font-size: 0.85rem;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-title.is-1 {
+    font-size: 2rem;
+  }
+  .has-text-justified {
+    text-align: left !important;
+  }
+  .example-box {
+    padding: 1rem;
+  }
+}
+
+.teaser-credit {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.hf-emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.1em;
+}

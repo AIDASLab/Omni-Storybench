@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Browse curated examples from Omni-StoryBench, a story-grounded omnimodal generation benchmark.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omni-StoryBench Viewer</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/bulma.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="./viewer.css">
+  <link rel="icon" href="../static/images/favicon.ico">
+
+  <script defer src="../static/js/fontawesome.all.min.js"></script>
+  <script defer src="./viewer.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../">
+        <span class="icon"><i class="fas fa-file-alt"></i></span>
+        <div style="padding-left:5px;">Project Page</div>
+      </a>
+      <a class="navbar-item" href="https://huggingface.co/datasets/snu-aidas/Omni-StoryBench">
+        <span class="icon"><i class="fas fa-database"></i></span>
+        <div style="padding-left:5px;">Full Dataset</div>
+      </a>
+      <a class="navbar-item" href="https://aidas.snu.ac.kr">
+        <span class="icon"><i class="fas fa-home"></i></span>
+        <div style="padding-left:5px;">AIDAS Lab</div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="section viewer-head">
+  <div class="container is-max-widescreen">
+    <h1 class="title is-3 publication-title">Omni-StoryBench Dataset Viewer</h1>
+    <p class="viewer-intro">
+      Curated page transitions from <a href="../">Omni-StoryBench</a>, each showing a different aspect of the
+      benchmark, with outputs from baseline systems.
+      <span class="v-help" role="button" aria-label="How to read this viewer" data-tip-template="tip-intro">?</span>
+    </p>
+    <template id="tip-intro">
+      <p>
+        Each example is a page transition. Given the current page, book-level metadata, and a condition for the
+        next page (<b>Input</b>), a model generates the next page's illustration, narration, and a spoken character
+        utterance. The book's actual next page is the <b>Ground truth</b>.
+      </p>
+      <p>All 900 samples are on <a href="https://huggingface.co/datasets/snu-aidas/Omni-StoryBench">Hugging Face</a>.</p>
+    </template>
+
+    <div class="viewer-nav">
+      <button class="button is-small" id="prev" title="Previous example (&larr;)">
+        <span class="icon"><i class="fas fa-chevron-left"></i></span>
+      </button>
+      <div class="chips" id="chips"></div>
+      <button class="button is-small" id="next" title="Next example (&rarr;)">
+        <span class="icon"><i class="fas fa-chevron-right"></i></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section viewer-body">
+  <div class="container is-max-widescreen" id="example">
+    <p class="has-text-grey">Loading&hellip;</p>
+  </div>
+</section>
+
+<footer class="footer" style="padding-bottom: 40px;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content is-size-7">
+          <p>
+            Page illustrations and narration come from the source collections named in each example and remain
+            under their original licenses. Book-level metadata, next-page conditions, and speech annotations are
+            part of Omni-StoryBench.
+          </p>
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed
+            under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+            Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <a href="https://en.snu.ac.kr">
+            <img src="../static/images/snu_logo.png" alt="Seoul National University" style="max-height: 48px; margin: 6px 10px;">
+          </a>
+          <a href="https://aidas.snu.ac.kr">
+            <img src="../static/images/aidaslab_logo.png" alt="AIDAS Lab" style="max-height: 36px; margin: 10px 30px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "dataset": "snu-aidas/Omni-StoryBench",
+  "dataset_revision": "b1436d97b4f7a97ad3185456874e46a7b87df3e2",
+  "notes": "Five examples chosen for diversity (illustration style, narration perspective, speaker type and visibility, speech emotion/speed) among non-NC samples whose baseline outputs show no reproduction of the ground truth. Every shown baseline produced all three outputs for each example.",
+  "examples": [
+    {
+      "id": "storyweaver/264815-baby-brother-karthi/page_002__page_003",
+      "aspect": "First-person observer, aunt speaks",
+      "rationale": "An older sibling narrates in the first person (“my baby brother Karthi”) but only watches: on the next page the narrator is out of frame while Savitha aunty plays with the baby and speaks, and Mom adjusts his nappy. Soft hand-painted illustrations on a warm beige ground.",
+      "attribution": {
+        "title": "Baby Brother Karthi",
+        "authors": [
+          "Anitha Selvanathan"
+        ],
+        "illustrators": [
+          "Madhuri Purandare"
+        ],
+        "license": null,
+        "url": "https://storyweaver.org.in/en/stories/264815-baby-brother-karthi",
+        "verified": false
+      }
+    },
+    {
+      "id": "storyweaver/23003-i-need-to-hide/page_019__page_020",
+      "aspect": "Piggy-bank narrator, sad speech",
+      "rationale": "A piggy bank narrates the story in the first person and is also the speaker. As Na sprinkles water over it, it says a sad, slow, low-pitched line about being apart from her, which the two-sentence narration only hints at. Soft digital painting.",
+      "attribution": {
+        "title": "I Need to Hide!",
+        "authors": [
+          "Trịnh Hà Giang",
+          "Magdalena Cooper (translator)"
+        ],
+        "illustrators": [
+          "Phùng Nguyên Quang"
+        ],
+        "license": null,
+        "url": "https://storyweaver.org.in/en/stories/23003-i-need-to-hide",
+        "verified": false
+      }
+    },
+    {
+      "id": "storyweaver/138171-soup-for-mother/page_007__page_008",
+      "aspect": "Off-screen speaker, close-up, no characters",
+      "rationale": "The next page cuts from the children’s hands preparing vegetables to a close-up of a steaming pan with nobody in the frame, yet Fiza, out of view, speaks a delighted, high-pitched line about the sizzling spices that is not in the narration. Grainy illustrations with sketchy pencil lines.",
+      "attribution": {
+        "title": "Soup for mother",
+        "authors": [
+          "Ashish kumar Trivedi",
+          "Rita Bansal (translator)"
+        ],
+        "illustrators": [
+          "Kabini Amin",
+          "Raymond Diby",
+          "Tanvee Nabar"
+        ],
+        "license": null,
+        "url": "https://storyweaver.org.in/en/stories/138171-soup-for-mother",
+        "verified": false
+      }
+    },
+    {
+      "id": "storyweaver/262397-maya-makes-friends/page_002__page_003",
+      "aspect": "Long narration, multi-panel flashback",
+      "rationale": "A 60-word narration that recalls Maya being teased, illustrated as a three-panel composition. Her spoken line is a sad, slow inner monologue that does not appear in the narration.",
+      "attribution": {
+        "title": "Maya Makes Friends",
+        "authors": [
+          "Deepa Parameswaran"
+        ],
+        "illustrators": [
+          "Manjushri Casukhela"
+        ],
+        "license": null,
+        "url": "https://storyweaver.org.in/en/stories/262397-maya-makes-friends",
+        "verified": false
+      }
+    },
+    {
+      "id": "storyweaver/20658-what-s-in-the-pot/page_018__page_019",
+      "aspect": "Line art, three-word narration",
+      "rationale": "Black-and-white line drawing on a colored frame. The next page's narration is only three words, and the image zooms from a wide shot to a close-up of Sam peering over the soup pot.",
+      "attribution": {
+        "title": "What's in the Pot?",
+        "authors": [
+          "Crystal Warren"
+        ],
+        "illustrators": [
+          "Hayley Alonzo"
+        ],
+        "license": null,
+        "url": "https://storyweaver.org.in/en/stories/20658-what-s-in-the-pot",
+        "verified": false
+      }
+    }
+  ]
+}

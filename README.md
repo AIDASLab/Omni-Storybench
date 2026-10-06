@@ -14,8 +14,7 @@
   <a href="https://aidaslab.github.io/Omni-Storybench/">
     <img src="https://img.shields.io/badge/Website-Project%20Page-2563EB?style=for-the-badge" alt="Project Page">
   </a>
-  <!-- Replace this temporary arXiv URL with the sample viewer URL when available. -->
-  <a href="https://arxiv.org/abs/2609.37317">
+  <a href="https://aidaslab.github.io/Omni-Storybench/viewer">
     <img src="https://img.shields.io/badge/Explore-Sample%20Viewer-2E8B57?style=for-the-badge" alt="Dataset Sample Viewer">
   </a>
 </p>

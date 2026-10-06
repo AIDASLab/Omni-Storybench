@@ -1,0 +1,55 @@
+{
+  "additional_special_tokens": [
+    "<|beginoftext|>",
+    "<|mask|>",
+    "<|begin_of_image|>",
+    "<|end_of_image|>",
+    "<|context_of_image|>",
+    "<|begin_of_video|>",
+    "<|end_of_video|>",
+    "<|context_of_video|>",
+    "<|begin_of_patch|>",
+    "<|end_of_patch|>",
+    "<|context_of_patch|>",
+    "<|begin_of_quad|>",
+    "<|end_of_quad|>",
+    "<|begin_of_ref|>",
+    "<|end_of_ref|>",
+    "<|begin_of_box|>",
+    "<|end_of_box|>",
+    "<|image|>",
+    "<|video|>",
+    "<|begin_of_audio|>",
+    "<|end_of_audio|>",
+    "<|context_of_audio|>",
+    "<|audio|>"
+  ],
+  "bos_token": {
+    "content": "<|beginoftext|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "eos_token": {
+    "content": "<|endoftext|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "mask_token": {
+    "content": "<|mask|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  },
+  "pad_token": {
+    "content": "<|endoftext|>",
+    "lstrip": false,
+    "normalized": false,
+    "rstrip": false,
+    "single_word": false
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "_class_name": "StableUnCLIPImageNormalizer",
+  "_diffusers_version": "0.15.0.dev0",
+  "_name_or_path": "./image_normalizer",
+  "embedding_dim": 1024
+}

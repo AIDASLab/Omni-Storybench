@@ -1,0 +1,40 @@
+{
+  "_class_name": "StableUnCLIPImg2ImgPipeline",
+  "_diffusers_version": "0.15.0.dev0",
+  "feature_extractor": [
+    "transformers",
+    "CLIPImageProcessor"
+  ],
+  "image_encoder": [
+    "transformers",
+    "CLIPVisionModelWithProjection"
+  ],
+  "image_noising_scheduler": [
+    "diffusers",
+    "DDPMScheduler"
+  ],
+  "image_normalizer": [
+    "stable_diffusion",
+    "StableUnCLIPImageNormalizer"
+  ],
+  "scheduler": [
+    "diffusers",
+    "PNDMScheduler"
+  ],
+  "text_encoder": [
+    "transformers",
+    "CLIPTextModel"
+  ],
+  "tokenizer": [
+    "transformers",
+    "CLIPTokenizer"
+  ],
+  "unet": [
+    "diffusers",
+    "UNet2DConditionModel"
+  ],
+  "vae": [
+    "diffusers",
+    "AutoencoderKL"
+  ]
+}

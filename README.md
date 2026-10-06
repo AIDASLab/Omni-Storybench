@@ -200,3 +200,18 @@ uv run python -m compileall -q run.py src scripts tests
 
 Additional project release decisions are recorded in
 [docs/release-decisions.md](docs/release-decisions.md).
+
+
+## Citation
+
+```text
+@misc{hyeon2026omnistorybench,
+      title={What Comes Next? Omni-StoryBench for Evaluating Story-Grounded Omnimodal Generation}, 
+      author={Sieun Hyeon and Yejoon Lee and Mintaek Lim and Woojin Kim and Jaeik Kim and Jaeyoung Do},
+      year={2026},
+      eprint={2609.37317},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2609.37317}, 
+}
+```
